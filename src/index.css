@@ -1,0 +1,12 @@
+body {
+  margin: 0;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+.banner {
+  margin-top: 5px;
+  height: 500px;
+  background: #656964 url(./assets/banner.jpg) no-repeat center center/cover;
+}
