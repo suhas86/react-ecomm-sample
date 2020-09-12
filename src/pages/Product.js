@@ -12,7 +12,7 @@ import { useParams } from "react-router-dom";
 import { useProduct, useProductsWithCategory } from "../hooks/useProducts";
 import Loading from "../components/Loading";
 import ProductSuggestions from "../components/ProductSuggestions";
-
+import CardContext from "../context/cart";
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -61,6 +61,7 @@ export default function Product() {
   const { productId, category } = useParams();
   const { product, products, loading } = useProductData(productId, category);
   const classes = useStyles();
+  const { addItem } = React.useContext(CardContext);
   if (loading) {
     return <Loading text={`Fetching your product`} />;
   }
@@ -78,7 +79,13 @@ export default function Product() {
             <Typography gutterBottom variant="h6" className={classes.price}>
               $ {product.price} <span className={classes.condition}>(Incuding all taxes)</span>
             </Typography>
-            <Button variant="contained" color="secondary" className={classes.button} startIcon={<ShoppingCartIcon />}>
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={(e) => addItem(product.id)}
+              className={classes.button}
+              startIcon={<ShoppingCartIcon />}
+            >
               Add to cart
             </Button>
             <Divider variant="middle" className={classes.divider} />
@@ -95,7 +102,7 @@ export default function Product() {
         Related products
       </Typography>
       <Container maxWidth={false}>
-        <ProductSuggestions products={ products.filter(({ id }) => id !== product.id)} />
+        <ProductSuggestions products={products.filter(({ id }) => id !== product.id)} />
       </Container>
     </Container>
   );

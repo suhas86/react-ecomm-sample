@@ -7,7 +7,9 @@ import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import Badge from "@material-ui/core/Badge";
 import { Link } from "react-router-dom";
+import CartContext from "../context/cart";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -23,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Navbar() {
   const classes = useStyles();
+  const { cart } = React.useContext(CartContext);
   return (
     <div className={classes.root}>
       <AppBar position="static">
@@ -39,7 +42,9 @@ export default function Navbar() {
               aria-haspopup="true"
               color="inherit"
             >
-              <ShoppingCartIcon />
+              <Badge badgeContent={cart.length} color="secondary">
+                <ShoppingCartIcon />
+              </Badge>
             </IconButton>
             <IconButton
               aria-label="account of current user"
