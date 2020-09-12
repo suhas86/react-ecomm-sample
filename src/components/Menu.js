@@ -9,16 +9,36 @@ export default function Menu() {
   return (
     <Paper square>
       <Tabs
-        value={location.pathname === "/" ? false : location.pathname}
+        value={!location.state ? false : location.state.category}
         indicatorColor="primary"
         textColor="primary"
         variant="fullWidth"
-        aria-label="disabled tabs example"
+        aria-label="Menu"
       >
-        <Tab label="men clothing" value="/men clothing" component={Link} to="/men clothing" />
-        <Tab label="jewelery" value="/jewelery" component={Link} to="/jewelery" />
-        <Tab label="electronics" value="/electronics" component={Link} to="/electronics" />
-        <Tab label="women clothing" value="/women clothing" component={Link} to="/women clothing" />
+        <Tab
+          label="men clothing"
+          value="men clothing"
+          component={Link}
+          to={{ pathname: "/men clothing", state: { category: "men clothing" } }}
+        />
+        <Tab
+          label="jewelery"
+          value="jewelery"
+          component={Link}
+          to={{ pathname: "/jewelery", state: { category: "jewelery" } }}
+        />
+        <Tab
+          label="electronics"
+          value="electronics"
+          component={Link}
+          to={{ pathname: "/electronics", state: { category: "electronics" } }}
+        />
+        <Tab
+          label="women clothing"
+          value="women clothing"
+          component={Link}
+          to={{ pathname: "/women clothing", state: { category: "women clothing" } }}
+        />
       </Tabs>
     </Paper>
   );

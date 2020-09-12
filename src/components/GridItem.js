@@ -6,17 +6,16 @@ import Typography from "@material-ui/core/Typography";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import Fab from "@material-ui/core/Fab";
 
+import { useHistory } from "react-router-dom";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     width: 300,
     margin: theme.spacing(2),
-    // flexGrow: 1,
   },
   media: {
     height: 300,
-    // maxWidth: 300,
     width: 300,
-    // maxHeight: 300,
     marginLeft: "auto",
     marginRight: "auto",
     display: "block",
@@ -30,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
   price: {
     color: theme.palette.secondary.main,
     position: "relative",
-    top: theme.spacing(2)
+    top: theme.spacing(2),
   },
   footer: {
     display: "flex",
@@ -40,8 +39,12 @@ const useStyles = makeStyles((theme) => ({
 
 export default function GridItem({ product }) {
   const classes = useStyles();
+  const history = useHistory();
+
+  const navigateUrl = `/${product.category}/${product.id}`;
+
   return (
-    <Card className={classes.root}>
+    <Card className={classes.root} onClick={(e) => history.push(navigateUrl, { category: product.category })}>
       <img className={classes.media} src={product.image} title={product.title} alt={product.title} />
       <CardContent>
         <Typography className={classes.title} variant="subtitle1">

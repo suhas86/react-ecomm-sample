@@ -11,5 +11,8 @@ function useProductsWithLimit(size = 0) {
 function useProductsWithCategory(category) {
   return useAxios(`/products/category/${category}`, "GET");
 }
+function useProduct(productId) {
+  return useAxios(`/products/${productId}`, "GET");
+}
 
-export { useProducts, useProductsWithLimit, useProductsWithCategory };
+export { useProducts, useProductsWithLimit, useProductsWithCategory, useProduct };
