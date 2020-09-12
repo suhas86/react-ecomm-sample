@@ -4,7 +4,7 @@ import Container from "@material-ui/core/Container";
 import { makeStyles } from "@material-ui/core/styles";
 import { useProductsWithLimit } from "../hooks/useProducts";
 
-import ProductGrid from "../components/ProductGrid";
+import ProductSuggestions from "../components/ProductSuggestions";
 import Loading from "../components/Loading";
 
 const useStyles = makeStyles((theme) => ({
@@ -32,7 +32,7 @@ export default function Home() {
         Top products
       </Typography>
       <Container maxWidth={false}>
-        <ProductGrid products={products} />
+        <ProductSuggestions products={products} />
       </Container>
     </div>
   );
