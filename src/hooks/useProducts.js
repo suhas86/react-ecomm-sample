@@ -8,4 +8,8 @@ function useProductsWithLimit(size = 0) {
   return useAxios(`/products?limit=${size}`, "GET");
 }
 
-export { useProducts, useProductsWithLimit };
+function useProductsWithCategory(category) {
+  return useAxios(`/products/category/${category}`, "GET");
+}
+
+export { useProducts, useProductsWithLimit, useProductsWithCategory };

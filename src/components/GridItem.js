@@ -13,10 +13,10 @@ const useStyles = makeStyles((theme) => ({
     // flexGrow: 1,
   },
   media: {
-    height: "auto",
-    maxWidth: 300,
-    width: "auto",
-    maxHeight: 300,
+    height: 300,
+    // maxWidth: 300,
+    width: 300,
+    // maxHeight: 300,
     marginLeft: "auto",
     marginRight: "auto",
     display: "block",
@@ -29,6 +29,8 @@ const useStyles = makeStyles((theme) => ({
   },
   price: {
     color: theme.palette.secondary.main,
+    position: "relative",
+    top: theme.spacing(2)
   },
   footer: {
     display: "flex",
