@@ -10,6 +10,7 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Products from "./pages/Products";
 import Product from "./pages/Product";
+import Checkout from "./pages/Checkout";
 
 const theme = createMuiTheme({
   palette: {
@@ -53,14 +54,17 @@ function App() {
             <Navbar />
             <Menu />
             <Switch>
-              <Route exact path="/">
-                <Home />
+              <Route exact path="/checkout">
+                <Checkout />
+              </Route>
+              <Route path="/:category/:productId">
+                <Product />
               </Route>
               <Route exact path="/:category">
                 <Products />
               </Route>
-              <Route path="/:category/:productId">
-                <Product />
+              <Route exact path="/">
+                <Home />
               </Route>
             </Switch>
             <Footer />

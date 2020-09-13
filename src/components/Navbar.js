@@ -5,11 +5,12 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
-import AccountCircle from "@material-ui/icons/AccountCircle";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import Badge from "@material-ui/core/Badge";
 import { Link } from "react-router-dom";
 import CartContext from "../context/cart";
+
+import Cart from "./Cart";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -26,6 +27,14 @@ const useStyles = makeStyles((theme) => ({
 export default function Navbar() {
   const classes = useStyles();
   const { cart } = React.useContext(CartContext);
+  const [open, setOpen] = React.useState(false);
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
   return (
     <div className={classes.root}>
       <AppBar position="static">
@@ -41,22 +50,16 @@ export default function Navbar() {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               color="inherit"
+              onClick={handleClickOpen}
             >
               <Badge badgeContent={cart.length} color="secondary">
                 <ShoppingCartIcon />
               </Badge>
             </IconButton>
-            <IconButton
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              color="inherit"
-            >
-              <AccountCircle />
-            </IconButton>
           </div>
         </Toolbar>
       </AppBar>
+      {open && <Cart open={open} handleClose={handleClose} />}
     </div>
   );
 }
