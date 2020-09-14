@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/react-ecomm-sample/static/css/main.c35e003f.chunk.css",
+    "main.js": "/react-ecomm-sample/static/js/main.9f5cf016.chunk.js",
+    "main.js.map": "/react-ecomm-sample/static/js/main.9f5cf016.chunk.js.map",
+    "runtime-main.js": "/react-ecomm-sample/static/js/runtime-main.e253932b.js",
+    "runtime-main.js.map": "/react-ecomm-sample/static/js/runtime-main.e253932b.js.map",
+    "static/js/2.88956b18.chunk.js": "/react-ecomm-sample/static/js/2.88956b18.chunk.js",
+    "static/js/2.88956b18.chunk.js.map": "/react-ecomm-sample/static/js/2.88956b18.chunk.js.map",
+    "index.html": "/react-ecomm-sample/index.html",
+    "precache-manifest.4bb1ace8be3ccc2089288c0962c8ff9c.js": "/react-ecomm-sample/precache-manifest.4bb1ace8be3ccc2089288c0962c8ff9c.js",
+    "service-worker.js": "/react-ecomm-sample/service-worker.js",
+    "static/css/main.c35e003f.chunk.css.map": "/react-ecomm-sample/static/css/main.c35e003f.chunk.css.map",
+    "static/js/2.88956b18.chunk.js.LICENSE.txt": "/react-ecomm-sample/static/js/2.88956b18.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/react-ecomm-sample/static/media/banner.e4072dc0.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e253932b.js",
+    "static/js/2.88956b18.chunk.js",
+    "static/css/main.c35e003f.chunk.css",
+    "static/js/main.9f5cf016.chunk.js"
+  ]
+}
