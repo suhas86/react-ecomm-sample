@@ -39,10 +39,14 @@ function App() {
       setCart(tempCart);
     }
   };
+  const clearAll = () => {
+    setCart([]);
+  };
   const value = React.useMemo(
     () => ({
       cart,
       addItem,
+      clearAll,
     }),
     [cart]
   );

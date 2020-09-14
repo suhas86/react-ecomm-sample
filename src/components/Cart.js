@@ -8,6 +8,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import CloseIcon from "@material-ui/icons/Close";
+import ClearAllIcon from "@material-ui/icons/ClearAll";
 import Slide from "@material-ui/core/Slide";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
@@ -45,6 +46,11 @@ const useStyles = makeStyles((theme) => ({
   button: {
     marginTop: theme.spacing(1),
   },
+  buttonClear: {
+    marginTop: theme.spacing(1),
+    backgroundColor: theme.palette.secondary.light,
+    float: "right",
+  },
 }));
 
 function CartItem({ product }) {
@@ -69,11 +75,19 @@ function CartItem({ product }) {
   );
 }
 
-function CartList({ products, cart, handleClose }) {
+function CartList({ products, cart, handleClose, clearAll }) {
   const classes = useStyles();
   const history = useHistory();
   if (products.length === 0)
-    return <Typography variant="h6">Your cart is empty!!! Start adding products 😀</Typography>;
+    return (
+      <Typography variant="h6">
+        Your cart is empty!!! Start adding products{" "}
+        <span role="img" description="aria-label">
+          {" "}
+          😀
+        </span>
+      </Typography>
+    );
   const updatedProducts = products.map((product) => {
     const item = cart.find((item) => item.id === product.id);
     product.quantity = item.quantity;
@@ -84,6 +98,10 @@ function CartList({ products, cart, handleClose }) {
   const checkout = () => {
     handleClose();
     history.push("/checkout");
+  };
+  const clearCart = () => {
+    clearAll();
+    handleClose();
   };
   return (
     <Container maxWidth="lg">
@@ -112,6 +130,14 @@ function CartList({ products, cart, handleClose }) {
             >
               Checkout
             </Button>
+            <Button
+              variant="contained"
+              onClick={clearCart}
+              className={classes.buttonClear}
+              startIcon={<ClearAllIcon />}
+            >
+              Clear All
+            </Button>
           </Paper>
         </Grid>
       </Grid>
@@ -121,7 +147,7 @@ function CartList({ products, cart, handleClose }) {
 
 export default function Cart({ open, handleClose }) {
   const classes = useStyles();
-  const { cart } = React.useContext(CartContext);
+  const { cart, clearAll } = React.useContext(CartContext);
   const { response: products, loading } = useSelectedProducts(cart);
   return (
     <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition}>
@@ -138,7 +164,7 @@ export default function Cart({ open, handleClose }) {
       {loading ? (
         <Loading text={"Loading your cart"} />
       ) : (
-        <CartList products={products} cart={cart} handleClose={handleClose} />
+        <CartList products={products} cart={cart} clearAll={clearAll} handleClose={handleClose} />
       )}
     </Dialog>
   );
