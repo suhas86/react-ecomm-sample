@@ -52,7 +52,7 @@ function App() {
   );
   return (
     <div className="App">
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <ThemeProvider theme={theme}>
           <CartProvider value={value}>
             <Navbar />
