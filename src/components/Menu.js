@@ -19,7 +19,7 @@ export default function Menu() {
           label="men clothing"
           value="men clothing"
           component={Link}
-          to={{ pathname: "/men clothing", state: { category: "men clothing" } }}
+          to={{ pathname: "/men's clothing", state: { category: "men's clothing" } }}
         />
         <Tab
           label="jewelery"
@@ -37,7 +37,7 @@ export default function Menu() {
           label="women clothing"
           value="women clothing"
           component={Link}
-          to={{ pathname: "/women clothing", state: { category: "women clothing" } }}
+          to={{ pathname: "/women's clothing", state: { category: "women's clothing" } }}
         />
       </Tabs>
     </Paper>

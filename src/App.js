@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { purple, amber } from "@material-ui/core/colors";
-import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+import { createTheme , ThemeProvider } from "@material-ui/core/styles";
 import { CartProvider } from "./context/cart";
 import Navbar from "./components/Navbar";
 import Menu from "./components/Menu";
@@ -12,7 +12,7 @@ import Products from "./pages/Products";
 import Product from "./pages/Product";
 import Checkout from "./pages/Checkout";
 
-const theme = createMuiTheme({
+const theme = createTheme ({
   palette: {
     primary: {
       main: purple[900],
